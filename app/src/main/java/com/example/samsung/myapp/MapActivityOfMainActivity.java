@@ -35,7 +35,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class MapActivityOfMainActivity extends AppCompatActivity {
-    private final String MAPKIT_API_KEY = "4337699f-6238-40c5-be87-6effac21ff24";
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
     private PlacemarkMapObject placemark;
     private MapView mapView;
