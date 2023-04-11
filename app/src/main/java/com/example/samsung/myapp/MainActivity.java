@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    Socket s = new Socket("192.168.123.61", 5000);
+                    Socket s = new Socket("192.168.123.55", 5000);
 
                     OutputStream out = s.getOutputStream();
 
