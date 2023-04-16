@@ -36,7 +36,7 @@ public class MapActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         MapKitFactory.setApiKey(MAPKIT_API_KEY);
         //MapKitFactory.initialize(this);
-        Intent intent = new Intent(this, MapActivityOfMainActivity.class);
+        Intent intent = new Intent(this, MainActivity2.class);
 
         setContentView(R.layout.activity_map);
         super.onCreate(savedInstanceState);
