@@ -40,9 +40,17 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int color = mViewImg.get(position);
-        String animal = mJobs.get(position);
-        holder.myView.setImageResource(color);
-        holder.myTextView.setText(animal);
+
+        System.out.println(mViewImg.size());
+        String text1 = mJobs.get(position);
+        String text2 = mJobs.get(position+1);
+        String text3 = mJobs.get(position+2);
+        holder.myimgres.setImageResource(R.drawable.flag_russia);
+        holder.myimgresof1.setImageResource(R.drawable.flag_russia);
+        holder.myimgresof2.setImageResource(R.drawable.flag_russia);
+        holder.myTextView.setText(text1);
+        holder.myTextView.setText(text2);
+        holder.myTextView.setText(text3);
     }
 
 
@@ -53,13 +61,21 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView myView;
+        ImageView myimgres;
+        ImageView myimgresof1;
+        ImageView myimgresof2;
         TextView myTextView;
-
+        TextView myTextView1;
+        TextView myTextView2;
         ViewHolder(View itemView) {
             super(itemView);
-            myView = itemView.findViewById(R.id.imageres);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+            myimgres = itemView.findViewById(R.id.imageres);
+            myimgresof1 = itemView.findViewById(R.id.imageres1);
+            myimgresof2 = itemView.findViewById(R.id.imageres2);
+
+            myTextView = itemView.findViewById(R.id.tvname1);
+            myTextView1 = itemView.findViewById(R.id.tvname2);
+            myTextView2 = itemView.findViewById(R.id.tvname3);
             itemView.setOnClickListener(this);
         }
 
