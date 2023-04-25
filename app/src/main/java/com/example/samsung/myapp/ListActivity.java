@@ -46,20 +46,22 @@ public class ListActivity extends AppCompatActivity {
         viewJobs.add(R.drawable.flag_russia);
         viewJobs.add(R.drawable.flag_russia);
         viewJobs.add(R.drawable.flag_russia);
-        ArrayList<String> nameJobs = new ArrayList<>();
-        nameJobs.add("Horse");
-        nameJobs.add("Cow");
-        nameJobs.add("Camel");
-        nameJobs.add("Horse");
-        nameJobs.add("Cow");
-        nameJobs.add("Camel");
+        ArrayList<String> nameJobscolmn1 = new ArrayList<>();
+        ArrayList<String> nameJobscolmn2 = new ArrayList<>();
+        ArrayList<String> nameJobscolmn3 = new ArrayList<>();
+        nameJobscolmn1.add("Horse");
+        nameJobscolmn1.add("Cow");
+        nameJobscolmn2.add("Camel");
+        nameJobscolmn2.add("Horse");
+        nameJobscolmn3.add("Cow");
+        nameJobscolmn3.add("Camel");
 
 
         RecyclerView recViewJobs= findViewById(R.id.rvJobs);
         LinearLayoutManager JobsManager
                 = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(JobsManager);
-        JobsAdapter adapterjobs = new JobsAdapter(this, viewJobs, nameJobs);
-        recyclerView.setAdapter(adapterjobs);
+        recViewJobs.setLayoutManager(JobsManager);
+        JobsAdapter adapterjobs = new JobsAdapter(this, viewJobs, nameJobscolmn1,nameJobscolmn2,nameJobscolmn3);
+        recViewJobs.setAdapter(adapterjobs);
     }
 }

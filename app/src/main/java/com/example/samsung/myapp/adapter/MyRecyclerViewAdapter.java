@@ -19,6 +19,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     private List<Integer> mViewImg;
     private List<String> mJobs;
+
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
