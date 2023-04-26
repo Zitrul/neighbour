@@ -33,12 +33,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
-
+import androidx.fragment.app.Fragment;
 public class MapActivityOfMainActivity extends AppCompatActivity {
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
     private PlacemarkMapObject placemark;
     private MapView mapView;
     private MapView yandexMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

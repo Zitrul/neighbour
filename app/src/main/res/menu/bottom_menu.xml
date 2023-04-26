@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/action_mail"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/action_list"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+        android:title="@string/list"
+        />
+    <item
         android:id="@+id/action_map"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/map"
         />
+
+
     <item
         android:id="@+id/action_dial"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/person"/>
-    <item
-        android:id="@+id/action_mail"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/home"/>
 </menu>

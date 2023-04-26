@@ -21,18 +21,6 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Intent intent = new Intent(this, ListActivity.class);
-        Button b = findViewById(R.id.button_list);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                System.out.println("list");
-                startActivity(intent);
-
-
-            }
-        });
 
     }
 
