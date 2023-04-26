@@ -21,7 +21,9 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.yandex.mapkit.Animation;
@@ -49,7 +51,7 @@ public class Map_Fragment extends Fragment {
 
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         //MapKitFactory.setApiKey(MAPKIT_API_KEY);
         //MapKitFactory.initialize(this);
 
@@ -69,7 +71,7 @@ public class Map_Fragment extends Fragment {
         //placemark.setIconStyle(new IconStyle().setAnchor(new PointF(0.5f, 0.0f)));
         placemark.setIcon(ImageProvider.fromResource(mContext, R.drawable.flag_russia));
         Log.e("ERREREE", "Получено исключение");
-
+        return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
 
