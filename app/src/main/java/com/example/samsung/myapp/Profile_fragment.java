@@ -33,7 +33,7 @@ public class Profile_fragment extends Fragment {
 
 
         super.onCreate(savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         return rootView;
     }
