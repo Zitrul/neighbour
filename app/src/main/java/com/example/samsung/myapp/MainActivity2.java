@@ -36,10 +36,10 @@ public class MainActivity2 extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
+
+        //fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
 //
-        fragmentTransaction.commit();
+        //fragmentTransaction.commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -47,21 +47,26 @@ public class MainActivity2 extends AppCompatActivity {
                     case R.id.action_list:
                         System.out.println("Список");
                         mode = 2;
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, profile_fragment).commit();
+
+
                         // Действия при выборе первого элемента меню
                         return true;
                     case R.id.action_mail:
                         mode = 1;
                         System.out.println("главная");
-                        // Действия при выборе второго элемента меню
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, list_fragment).commit();
                         return true;
                     case R.id.action_map:
                         mode = 3;
                         System.out.println("Карта");
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container,map_fragment).commit();
                         // Действия при выборе третьего элемента меню
                         return true;
                     case R.id.action_profile:
                         mode = 4;
                         System.out.println("Проф");
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, profile_fragment).commit();
                         // Действия при выборе третьего элемента меню
                         return true;
                     default:
@@ -71,19 +76,27 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         if(mode == 4){
-
+            System.out.println("Начинаю отрисовку 4 ");
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
             fragmentTransaction.commit();
         }
         if (mode == 3){
+            System.out.println("Начинаю отрисовку 3 ");
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container,map_fragment);
             fragmentTransaction.commit();
         }
+
         if (mode == 2){
+            System.out.println("Начинаю отрисовку 2 ");
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, list_fragment);
             fragmentTransaction.commit();
         }
         if(mode == 1){
+            System.out.println("Начинаю отрисовку 1 ");
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
             fragmentTransaction.commit();
         }
