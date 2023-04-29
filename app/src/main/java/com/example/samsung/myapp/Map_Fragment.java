@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.zip.Inflater;
+
 import androidx.fragment.app.Fragment;
 public class Map_Fragment extends Fragment {
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
@@ -57,9 +59,8 @@ public class Map_Fragment extends Fragment {
 
 
         super.onCreate(savedInstanceState);
-        mapView = (MapView)view.findViewById(R.id.mapview);
-
-
+        View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+        mapView = (MapView) rootView.findViewById(R.id.mapview);
         mapView.getMap().move(
                 new CameraPosition(TARGET_LOCATION, 18.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 5),
@@ -71,9 +72,8 @@ public class Map_Fragment extends Fragment {
         //placemark.setIconStyle(new IconStyle().setAnchor(new PointF(0.5f, 0.0f)));
         placemark.setIcon(ImageProvider.fromResource(mContext, R.drawable.flag_russia));
         Log.e("ERREREE", "Получено исключение");
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return rootView;
     }
-
 
     @Override
     public void onStop() {

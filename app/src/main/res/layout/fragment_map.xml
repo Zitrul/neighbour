@@ -4,18 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapActivityOfMainActivity">
-    <fragment
-        android:id="@+id/fragments"
-        android:name="com.example.samsung.myapp.Map_Fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp" />
+    >
+
 
     <com.yandex.mapkit.mapview.MapView
         android:id="@+id/mapview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="40dp">
 
