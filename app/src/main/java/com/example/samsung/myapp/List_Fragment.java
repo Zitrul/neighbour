@@ -23,6 +23,8 @@ import com.yandex.mapkit.mapview.MapView;
 import com.yandex.runtime.image.ImageProvider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class List_Fragment extends Fragment {
     //Активность со списками новых работ и т.п
@@ -55,10 +57,10 @@ public class List_Fragment extends Fragment {
         animalNames.add("Goat");
 
         RecyclerView recyclerView = rootView.findViewById(R.id.rvJobsNew);
-        //LinearLayoutManager horizontalLayoutManager
-        //        = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        //recyclerView.setLayoutManager(horizontalLayoutManager);
-        MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(mContext, viewColors, animalNames);
+        LinearLayoutManager horizontalLayoutManager
+                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(horizontalLayoutManager);
+        MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(getContext(), viewColors, animalNames);
         recyclerView.setAdapter(adapter);
 
         ArrayList<Integer> viewJobs = new ArrayList<>();
@@ -68,22 +70,28 @@ public class List_Fragment extends Fragment {
         viewJobs.add(R.drawable.flag_russia);
         viewJobs.add(R.drawable.flag_russia);
         viewJobs.add(R.drawable.flag_russia);
-        ArrayList<String> nameJobscolmn1 = new ArrayList<>();
-        ArrayList<String> nameJobscolmn2 = new ArrayList<>();
-        ArrayList<String> nameJobscolmn3 = new ArrayList<>();
-        nameJobscolmn1.add("Horse");
-        nameJobscolmn1.add("Cow");
-        nameJobscolmn2.add("Camel");
-        nameJobscolmn2.add("Horse");
-        nameJobscolmn3.add("Cow");
-        nameJobscolmn3.add("Camel");
+        ArrayList<String> nameJobscolmn1 = new ArrayList<String>();
 
-
+        ArrayList<String> nameJobscolmn2 = new ArrayList<String>();
+        ArrayList<String> nameJobscolmn3 = new ArrayList<String>();
+        nameJobscolmn1.add("Horse1");
+        nameJobscolmn1.add("Cow1");
+        nameJobscolmn1.add("Cow1");
+        nameJobscolmn2.add("Camel2");
+        nameJobscolmn2.add("Horse2");
+        nameJobscolmn2.add("Horse2");
+        nameJobscolmn3.add("Cow3");
+        nameJobscolmn3.add("Camel3");
+        nameJobscolmn3.add("Camel3");
+        ArrayList<ArrayList<String>> list2d = new ArrayList<ArrayList<String>>();
+        list2d.add(nameJobscolmn1);
+        list2d.add(nameJobscolmn2);
+        list2d.add(nameJobscolmn3);
         RecyclerView recViewJobs= rootView.findViewById(R.id.rvJobs);
-        //LinearLayoutManager JobsManager
-        //        = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.VERTICAL, false);
-        //recViewJobs.setLayoutManager(JobsManager);
-        JobsAdapter adapterjobs = new JobsAdapter(mContext, viewJobs, nameJobscolmn1,nameJobscolmn2,nameJobscolmn3);
+        LinearLayoutManager JobsManager
+                = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recViewJobs.setLayoutManager(JobsManager);
+        JobsAdapter adapterjobs = new JobsAdapter(getContext(), viewJobs,list2d);
         recViewJobs.setAdapter(adapterjobs);
         return rootView;
     }

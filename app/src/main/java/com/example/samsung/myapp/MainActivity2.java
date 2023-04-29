@@ -75,7 +75,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        if(mode == 4){
+        /*if(mode == 4){
             System.out.println("Начинаю отрисовку 4 ");
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
@@ -101,7 +101,7 @@ public class MainActivity2 extends AppCompatActivity {
             fragmentTransaction.commit();
         }
         //Intent intent = new Intent(this, ListActivity.class);
-
+        */
     }
 
 }

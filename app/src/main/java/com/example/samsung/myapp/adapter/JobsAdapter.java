@@ -13,23 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.samsung.myapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     private List<Integer> mViewImg;
+    private ArrayList<ArrayList<String>> list2d;
     private List<String> mJobs1;
     private List<String> mJobs2;
     private List<String> mJobs3;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    public JobsAdapter(Context context, List<Integer> colors, List<String> animals1,List<String> animals2,List<String> animals3) {
+    public JobsAdapter(Context context, List<Integer> colors,  ArrayList<ArrayList<String>> list2d) {
         this.mInflater = LayoutInflater.from(context);
         this.mViewImg = colors;
-        this.mJobs1 = animals1;
-        this.mJobs2 = animals2;
-        this.mJobs3 = animals3;
+        this.list2d = list2d;
     }
 
 
@@ -46,9 +46,10 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
         int color = mViewImg.get(position);
 
         System.out.println(mViewImg.size());
-        String text1 = mJobs1.get(position);
-        String text2 = mJobs2.get(position);
-        String text3 = mJobs3.get(position);
+        ArrayList<String> list = list2d.get(position);
+        String text1 = list.get(0);
+        String text2 = list.get(1);
+        String text3 = list.get(2);
         holder.myimgres.setImageResource(R.drawable.flag_russia);
         holder.myimgresof1.setImageResource(R.drawable.flag_russia);
         holder.myimgresof2.setImageResource(R.drawable.flag_russia);
@@ -60,7 +61,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mJobs1.size();
+        return list2d.size();
     }
 
 

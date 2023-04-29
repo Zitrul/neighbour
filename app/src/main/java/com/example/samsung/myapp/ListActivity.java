@@ -61,7 +61,7 @@ public class ListActivity extends AppCompatActivity {
         LinearLayoutManager JobsManager
                 = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.VERTICAL, false);
         recViewJobs.setLayoutManager(JobsManager);
-        JobsAdapter adapterjobs = new JobsAdapter(this, viewJobs, nameJobscolmn1,nameJobscolmn2,nameJobscolmn3);
-        recViewJobs.setAdapter(adapterjobs);
+        //JobsAdapter adapterjobs = new JobsAdapter(this, viewJobs, nameJobscolmn1,nameJobscolmn2,nameJobscolmn3);
+        //recViewJobs.setAdapter(adapterjobs);
     }
 }
