@@ -2,6 +2,8 @@ package com.example.samsung.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +27,7 @@ import com.yandex.runtime.image.ImageProvider;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import androidx.fragment.app.DialogFragment;
 public class List_Fragment extends Fragment {
     //Активность со списками новых работ и т.п
     Context mContext;
@@ -43,6 +45,14 @@ public class List_Fragment extends Fragment {
 
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.list_fragment, container, false);
+
+        OrderActivity myDialogFragment = new OrderActivity();
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        //myDialogFragment.show(manager, "dialog");
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        myDialogFragment.show(transaction, "dialog");
+
         ArrayList<Integer> viewColors = new ArrayList<>();
         viewColors.add(R.drawable.flag_russia);
         viewColors.add(R.drawable.flag_russia);
