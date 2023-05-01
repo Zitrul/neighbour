@@ -9,10 +9,15 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.samsung.myapp.domain.Login;
+import com.example.samsung.myapp.rest.LoginApiService;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -28,9 +33,14 @@ import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     String message = "";
+    private static final String REST = "REST";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -54,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        LoginApiService.getInstance().getLogin("d").enqueue(new Callback<Login>() {
+            @Override
+            public void onResponse(Call<Login> call, Response<Login> response) {
+                Log.d(REST,response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<Login> call, Throwable t) {
+                Log.d(REST,t.getMessage());
+            }
+        });
+
     }
     private void sendMessage(final String msg) {
 
