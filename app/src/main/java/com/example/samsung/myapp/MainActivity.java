@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 if (message != "") {
                     //sendMessage(message);
                     System.out.println(message);
-                    LoginApiService.getInstance().getLogin(message).enqueue(new Callback<Login>() {
+                    LoginApiService.getInstance().getLogin(name.getText().toString(),password.getText().toString()).enqueue(new Callback<Login>() {
                         @Override
                         public void onResponse(Call<Login> call, Response<Login> response) {
                             Log.d(REST,response.body().toString());

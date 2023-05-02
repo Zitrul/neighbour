@@ -10,5 +10,5 @@ import retrofit2.http.Query;
 
 public interface AppApi {
     @GET("hello/v1")
-    Call<Login> getLogin(@Query("name") String name);
+    Call<Login> getLogin(@Query("name") String name,@Query("password") String password);
 }
