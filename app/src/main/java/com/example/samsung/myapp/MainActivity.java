@@ -50,32 +50,33 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MapActivity.class);
 
         EditText name = findViewById(R.id.editTextName);
-        EditText secondname = findViewById(R.id.editTextSecondName);
+        EditText password = findViewById(R.id.editTextSecondName);
         Button b = findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message = name.getText().toString()+ " " +secondname.getText().toString();
+                message = name.getText().toString()+ "\n" +password.getText().toString();
                 if (message != "") {
-                    sendMessage(message);
+                    //sendMessage(message);
                     System.out.println(message);
+                    LoginApiService.getInstance().getLogin(message).enqueue(new Callback<Login>() {
+                        @Override
+                        public void onResponse(Call<Login> call, Response<Login> response) {
+                            Log.d(REST,response.body().toString());
+                        }
+
+                        @Override
+                        public void onFailure(Call<Login> call, Throwable t) {
+                            Log.d(REST,t.getMessage());
+                        }
+                    });;
                     startActivity(intent);
                 }
 
             }
         });
 
-        LoginApiService.getInstance().getLogin("d").enqueue(new Callback<Login>() {
-            @Override
-            public void onResponse(Call<Login> call, Response<Login> response) {
-                Log.d(REST,response.body().toString());
-            }
 
-            @Override
-            public void onFailure(Call<Login> call, Throwable t) {
-                Log.d(REST,t.getMessage());
-            }
-        });
 
     }
     private void sendMessage(final String msg) {

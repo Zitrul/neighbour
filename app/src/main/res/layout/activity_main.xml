@@ -23,7 +23,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginBottom="3dp"
-        android:text="Введите Фамилию"
+        android:text="Введите Пароль"
         app:layout_constraintBottom_toTopOf="@+id/editTextSecondName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />\
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:text="Подтвердить"

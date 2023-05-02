@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ScrollView;
 
 import com.example.samsung.myapp.adapter.JobsAdapter;
@@ -46,12 +47,8 @@ public class List_Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.list_fragment, container, false);
 
-        OrderActivity myDialogFragment = new OrderActivity();
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        //myDialogFragment.show(manager, "dialog");
 
-        FragmentTransaction transaction = manager.beginTransaction();
-        myDialogFragment.show(transaction, "dialog");
+
 
         ArrayList<Integer> viewColors = new ArrayList<>();
         viewColors.add(R.drawable.flag_russia);
@@ -103,6 +100,21 @@ public class List_Fragment extends Fragment {
         recViewJobs.setLayoutManager(JobsManager);
         JobsAdapter adapterjobs = new JobsAdapter(getContext(), viewJobs,list2d);
         recViewJobs.setAdapter(adapterjobs);
+
+        Button b = rootView.findViewById(R.id.button_add);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OrderActivity myDialogFragment = new OrderActivity();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                //myDialogFragment.show(manager, "dialog");
+
+                FragmentTransaction transaction = manager.beginTransaction();
+                myDialogFragment.show(transaction, "dialog");
+
+            }
+        });
         return rootView;
     }
 

@@ -29,7 +29,7 @@ public class OrderActivity extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Важное сообщение!")
+        builder.setTitle("Создать заказ")
                 .setMessage("Покормите кота!")
 
                 .setPositiveButton("ОК, иду на кухню", new DialogInterface.OnClickListener() {
