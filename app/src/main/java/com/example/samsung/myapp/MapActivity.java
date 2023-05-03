@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.samsung.myapp.domain.Login;
+import com.example.samsung.myapp.rest.LoginApiService;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
@@ -24,12 +26,16 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MapActivity extends Activity {
 
     private final String MAPKIT_API_KEY = "4337699f-6238-40c5-be87-6effac21ff24";
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
-
+    private static final String REST = "REST";
     private MapView mapView;
 
     @Override
@@ -37,6 +43,15 @@ public class MapActivity extends Activity {
         MapKitFactory.setApiKey(MAPKIT_API_KEY);
         //MapKitFactory.initialize(this);
         Intent intent = new Intent(this, MainActivity2.class);
+
+        Bundle arguments = getIntent().getExtras();
+        String name = arguments.get("login").toString();
+        String password = arguments.get("password").toString();
+        String phone = arguments.get("phone").toString();
+        String email = arguments.get("email").toString();
+        String tg = arguments.get("tg").toString();
+
+
 
         setContentView(R.layout.activity_map);
         super.onCreate(savedInstanceState);
@@ -61,6 +76,18 @@ public class MapActivity extends Activity {
                 sendMessage( String.format("position reg %f, %f ",position.getTarget().getLatitude(),
                         position.getTarget().getLongitude())
                 );
+
+                LoginApiService.getInstance().getReg(name,password,position.getTarget().getLatitude(),position.getTarget().getLongitude(),email,phone,tg).enqueue(new Callback<Login>() {
+                    @Override
+                    public void onResponse(Call<Login> call, Response<Login> response) {
+                        Log.d(REST,response.body().toString());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Login> call, Throwable t) {
+                        Log.d(REST,t.getMessage());
+                    }
+                });;
 
                 startActivity(intent);
             }

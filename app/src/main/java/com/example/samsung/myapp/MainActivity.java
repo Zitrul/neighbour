@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, MapActivity.class);
+        Intent intent = new Intent(this, Registration.class);
 
         EditText name = findViewById(R.id.editTextName);
         EditText password = findViewById(R.id.editTextSecondName);
