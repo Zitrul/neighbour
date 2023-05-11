@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/black">
 
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="300dp"
         android:layout_height="40dp"
-
+        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
@@ -19,6 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/textView"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -31,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/textView2"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -43,6 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:textColor="@color/main_text"
         android:id="@+id/editTextSecondName"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -54,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
+
         android:text="Подтвердить"
         android:id="@+id/button"
         android:layout_width="320dp"

@@ -40,6 +40,7 @@ import java.util.zip.Inflater;
 
 import androidx.fragment.app.Fragment;
 public class Map_Fragment extends Fragment {
+    private final String MAPKIT_API_KEY = "4337699f-6238-40c5-be87-6effac21ff24";
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
     private PlacemarkMapObject placemark;
     private MapView mapView;
@@ -53,25 +54,26 @@ public class Map_Fragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        //MapKitFactory.setApiKey(MAPKIT_API_KEY);
-        //MapKitFactory.initialize(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Установите ключ API
+        if(MapActivity.status_of_factory == 1){
+            MapKitFactory.setApiKey(MAPKIT_API_KEY);
+            // Инициализируйте MapKit
+            MapKitFactory.initialize(getContext());
+            MapActivity.status_of_factory = 0;
+        }
 
 
-        super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
-        mapView = (MapView) rootView.findViewById(R.id.mapview);
-        mapView.getMap().move(
-                new CameraPosition(TARGET_LOCATION, 18.0f, 0.0f, 0.0f),
-                new Animation(Animation.Type.SMOOTH, 5),
-                null);
+        mapView = rootView.findViewById(R.id.mapview);
+
+        mapView.getMap().move(new CameraPosition(TARGET_LOCATION, 18.0f, 0.0f, 0.0f),
+                new Animation(Animation.Type.SMOOTH, 5), null);
+
         MapObjectCollection markers = mapView.getMap().getMapObjects();
         placemark = markers.addPlacemark(new Point(59.957086, 30.308234));
-        //placemark.setOpacity(0.5f);
+        placemark.setIcon(ImageProvider.fromResource(getActivity(), R.drawable.flag_russia));
 
-        //placemark.setIconStyle(new IconStyle().setAnchor(new PointF(0.5f, 0.0f)));
-        placemark.setIcon(ImageProvider.fromResource(mContext, R.drawable.flag_russia));
-        Log.e("ERREREE", "Получено исключение");
         return rootView;
     }
 

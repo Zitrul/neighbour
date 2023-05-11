@@ -115,6 +115,7 @@ public class List_Fragment extends Fragment {
 
             }
         });
+
         return rootView;
     }
 

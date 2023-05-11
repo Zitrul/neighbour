@@ -57,11 +57,11 @@ public class ListActivity extends AppCompatActivity {
         nameJobscolmn3.add("Camel");
 
 
-        RecyclerView recViewJobs= findViewById(R.id.rvJobs);
-        LinearLayoutManager JobsManager
-                = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.VERTICAL, false);
-        recViewJobs.setLayoutManager(JobsManager);
-        //JobsAdapter adapterjobs = new JobsAdapter(this, viewJobs, nameJobscolmn1,nameJobscolmn2,nameJobscolmn3);
+        //RecyclerView recViewJobs= findViewById(R.id.rvJobs);
+        //LinearLayoutManager JobsManager
+        //        = new LinearLayoutManager(ListActivity.this, LinearLayoutManager.VERTICAL, false);
+        //recViewJobs.setLayoutManager(JobsManager);
+        //JobsAdapter adapterjobs = new JobsAdapter(this,);
         //recViewJobs.setAdapter(adapterjobs);
     }
 }

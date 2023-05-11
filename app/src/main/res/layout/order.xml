@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="96dp"
+
+        android:backgroundTint="#AE9D07"
+
+        android:text="Создать"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:textColor="@color/main_text"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Описание:"
+        app:layout_constraintBottom_toTopOf="@+id/editTextName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName3"
+        tools:layout_editor_absoluteX="45dp" />
+
+    <EditText
+        android:textColor="@color/main_text"
+        android:id="@+id/editTextName"
+        android:layout_width="298dp"
+        android:layout_height="107dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:textColor="@color/main_text"
+        android:id="@+id/editTextName2"
+        android:layout_width="297dp"
+        android:layout_height="37dp"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <EditText
+        android:textColor="@color/main_text"
+        android:id="@+id/editTextName3"
+        android:layout_width="297dp"
+        android:layout_height="37dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:textColor="@color/main_text"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Цена:"
+        app:layout_constraintBottom_toTopOf="@+id/editTextName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        tools:layout_editor_absoluteX="45dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:textColor="@color/main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Назание заказа:"
+        app:layout_constraintBottom_toTopOf="@+id/editTextName3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:layout_editor_absoluteX="45dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="107dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flag_russia"
+        tools:layout_editor_absoluteX="45dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

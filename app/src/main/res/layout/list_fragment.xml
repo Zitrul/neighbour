@@ -8,10 +8,11 @@
 
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Список:"
+        android:text="Новые"
         android:textSize="34sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -34,6 +35,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
+        android:backgroundTint="@color/button"
         android:id="@+id/button_add"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -43,4 +45,18 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:textColor="@color/main_text"
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="384dp"
+        android:layout_marginBottom="1dp"
+        android:text="Все:"
+        app:layout_constraintBottom_toTopOf="@+id/rvJobs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvJobsNew" />
 </androidx.constraintlayout.widget.ConstraintLayout>

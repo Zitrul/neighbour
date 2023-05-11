@@ -37,10 +37,14 @@ public class MapActivity extends Activity {
     private final Point TARGET_LOCATION = new Point(59.957086, 30.308234);
     private static final String REST = "REST";
     private MapView mapView;
-
+    public static int status_of_factory = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        MapKitFactory.setApiKey(MAPKIT_API_KEY);
+        if(status_of_factory == 1){
+            MapKitFactory.setApiKey(MAPKIT_API_KEY);
+            status_of_factory = 0;
+        }
+
         //MapKitFactory.initialize(this);
         Intent intent = new Intent(this, MainActivity2.class);
 

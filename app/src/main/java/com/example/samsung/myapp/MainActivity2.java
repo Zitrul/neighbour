@@ -29,6 +29,9 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        System.out.println("id"+MainActivity.auth_id);
+
         Map_Fragment map_fragment = new Map_Fragment();
         List_Fragment list_fragment = new List_Fragment();
         Profile_fragment profile_fragment = new Profile_fragment();
@@ -36,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
         FragmentManager fragmentManager = getSupportFragmentManager();
-
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, list_fragment).commit();
         //fragmentTransaction.replace(R.id.fragment_container, profile_fragment);
 //
         //fragmentTransaction.commit();
@@ -44,14 +47,6 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_list:
-                        System.out.println("Список");
-                        mode = 2;
-                        fragmentManager.beginTransaction().replace(R.id.fragment_container, profile_fragment).commit();
-
-
-                        // Действия при выборе первого элемента меню
-                        return true;
                     case R.id.action_mail:
                         mode = 1;
                         System.out.println("главная");

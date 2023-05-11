@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.example.samsung.myapp.domain.Login;
 import com.example.samsung.myapp.rest.LoginApiService;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -40,14 +42,15 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     String message = "";
-    private static final String REST = "REST";
+    public static int auth_id = 0;
+    public static final String REST = "REST";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, Registration.class);
+        Intent intent = new Intent(this, MainActivity2.class);
 
         EditText name = findViewById(R.id.editTextName);
         EditText password = findViewById(R.id.editTextSecondName);
@@ -63,6 +66,19 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Login> call, Response<Login> response) {
                             Log.d(REST,response.body().toString());
+
+
+
+                            try {
+                                if(Integer.parseInt(response.body().getMsg())>=0){
+                                    auth_id = Integer.parseInt(response.body().getMsg());
+                                    startActivity(intent);
+                                }
+
+                            }
+                            catch (Exception i){
+                                System.out.println(i);
+                            }
                         }
 
                         @Override
@@ -70,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(REST,t.getMessage());
                         }
                     });;
-                    startActivity(intent);
+
                 }
 
             }
