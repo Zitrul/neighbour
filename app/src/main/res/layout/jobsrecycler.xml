@@ -4,59 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="30dp">
+    android:padding="10dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp">
+
         <ImageView
 
             android:id="@+id/imageres"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            />
+            android:layout_width="110dp"
+            android:layout_height="97dp" />
+
         <TextView
-            android:textColor="@color/main_text"
             android:id="@+id/tvname1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
-        <ImageView
-            android:id="@+id/imageres1"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            />
-        <TextView
+            android:layout_width="110dp"
+            android:layout_height="95dp"
             android:textColor="@color/main_text"
-            android:id="@+id/tvname2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-        <ImageView
-            android:id="@+id/imageres2"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            />
-        <TextView
-            android:textColor="@color/main_text"
-            android:id="@+id/tvname3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 
 

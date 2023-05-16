@@ -16,7 +16,7 @@ public class Registration extends AppCompatActivity {
         Intent intent = new Intent(this, MapActivity.class);
         setContentView(R.layout.activity_registration);
         Button b = findViewById(R.id.button);
-        EditText login = findViewById(R.id.editTextName);
+        EditText login = findViewById(R.id.editTextDesc);
         EditText password = findViewById(R.id.editTextSecondName);
         EditText phone = findViewById(R.id.editTextPhone3);
         EditText tg = findViewById(R.id.editTextTG);

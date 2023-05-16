@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.samsung.myapp.R;
+import com.example.samsung.myapp.domain.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +20,16 @@ import java.util.List;
 public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     private List<Integer> mViewImg;
-    private ArrayList<ArrayList<String>> list2d;
+    private ArrayList<Order> list2d;
     private List<String> mJobs1;
     private List<String> mJobs2;
     private List<String> mJobs3;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    public JobsAdapter(Context context, List<Integer> colors,  ArrayList<ArrayList<String>> list2d) {
+    public JobsAdapter(Context context, ArrayList<Order> list2d) {
         this.mInflater = LayoutInflater.from(context);
-        this.mViewImg = colors;
+
         this.list2d = list2d;
     }
 
@@ -43,19 +44,12 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int color = mViewImg.get(position);
 
-        System.out.println(mViewImg.size());
-        ArrayList<String> list = list2d.get(position);
-        String text1 = list.get(0);
-        String text2 = list.get(1);
-        String text3 = list.get(2);
+
+
+        String text1 = list2d.get(position).getName();
         holder.myimgres.setImageResource(R.drawable.flag_russia);
-        holder.myimgresof1.setImageResource(R.drawable.flag_russia);
-        holder.myimgresof2.setImageResource(R.drawable.flag_russia);
         holder.myTextView.setText(text1);
-        holder.myTextView1.setText(text2);
-        holder.myTextView2.setText(text3);
     }
 
 
@@ -74,15 +68,11 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
         TextView myTextView;
         TextView myTextView1;
         TextView myTextView2;
+
         ViewHolder(View itemView) {
             super(itemView);
             myimgres = itemView.findViewById(R.id.imageres);
-            myimgresof1 = itemView.findViewById(R.id.imageres1);
-            myimgresof2 = itemView.findViewById(R.id.imageres2);
-
             myTextView = itemView.findViewById(R.id.tvname1);
-            myTextView1 = itemView.findViewById(R.id.tvname2);
-            myTextView2 = itemView.findViewById(R.id.tvname3);
             itemView.setOnClickListener(this);
         }
 
@@ -93,8 +83,8 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
     }
 
 
-    public String getItem(int id) {
-        return mJobs1.get(id);
+    public Object getItem(int id) {
+        return list2d.get(id);
     }
 
     public void setClickListener(ItemClickListener itemClickListener) {
