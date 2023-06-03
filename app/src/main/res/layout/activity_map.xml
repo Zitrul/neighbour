@@ -19,7 +19,7 @@
         android:id="@+id/imageView"
         android:layout_width="96dp"
         android:layout_height="116dp"
-        android:src="@drawable/position"
+        android:src="@drawable/img_loc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:backgroundTint="#336666"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Подтвердить"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -98,7 +98,7 @@ public class Map_Fragment extends Fragment {
                     Log.d(MainActivity.REST,response.body().get(i).getName());
                     System.out.println(response.body().get(i).getX()+"Y:"+ response.body().get(i).getY());
                     PlacemarkMapObject placemark = markers.addPlacemark(new Point(response.body().get(i).getX(), response.body().get(i).getY()));
-                    placemark.setIcon(ImageProvider.fromResource(getActivity(), R.drawable.flag_russia));
+                    placemark.setIcon(ImageProvider.fromResource(getActivity(), R.drawable.img_loc));
                     placemark.setUserData(response.body().get(i));
                     placemark.addTapListener(new MapObjectTapListener() {
 

@@ -1,10 +1,6 @@
-package com.example.samsung.myapp;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
+package com.example.samsung.myapp.dialogs;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,10 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+
 import com.bumptech.glide.Glide;
+import com.example.samsung.myapp.MainActivity;
+import com.example.samsung.myapp.OrderTextDialogForList;
+import com.example.samsung.myapp.R;
 import com.example.samsung.myapp.domain.Login;
 import com.example.samsung.myapp.domain.Order;
-import com.example.samsung.myapp.domain.Spot;
 import com.example.samsung.myapp.rest.LoginApiService;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,16 +32,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OrderTextDialog extends DialogFragment {
+public class MyWorkDialog extends DialogFragment {
     Context mContext;
     private int last_index;
-    private Spot s;
+
     private Order o;
     private static final String ARG_MY_CLASS = "spot_arg";
-    public static OrderTextDialog newInstance(Spot s) {
-        OrderTextDialog fragment = new OrderTextDialog();
+    public static MyWorkDialog newInstance(Order o) {
+        MyWorkDialog fragment = new MyWorkDialog();
         Bundle args = new Bundle();
-        args.putSerializable(ARG_MY_CLASS, s);
+        args.putSerializable(ARG_MY_CLASS, o);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,31 +50,33 @@ public class OrderTextDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            s = (Spot) getArguments().getSerializable(ARG_MY_CLASS);
+            o = (Order) getArguments().getSerializable(ARG_MY_CLASS);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        View view = getLayoutInflater().inflate(R.layout.add_order,null);
+        View view = getLayoutInflater().inflate(R.layout.myworkdialog,null);
         TextView name = view.findViewById(R.id.Textname);
-        name.setText(s.getName());
+        name.setText(o.getName());
         TextView desc = view.findViewById(R.id.editTextDesc);
-        desc.setText(s.getDesc());
-        TextView tg = view.findViewById(R.id.textViewtg);
-        tg.setText(s.getTg());
-        TextView phone = view.findViewById(R.id.textViewephone);
-        phone.setText(s.getPhone());
-        TextView email = view.findViewById(R.id.textViewemail);
-        email.setText(s.getEmail());
+        desc.setText(o.getDesc());
         TextView price = view.findViewById(R.id.editTextPrice);
-        price.setText(s.getPrice());
-        if(s.getMsg().equals("none") == false && s.getMsg().equals("gs://neighbours-f1462.appspot.com/images/image5.jpg") == false ){
+        price.setText(o.getPrice());
+        TextView tg = view.findViewById(R.id.textViewtg);
+        tg.setText(o.getTg());
+        TextView phone = view.findViewById(R.id.textViewephone);
+        phone.setText(o.getPhone());
+        TextView email = view.findViewById(R.id.textViewemail);
+        email.setText(o.getEmail());
+
+        if(o.getMsg().equals("none") == false && o.getMsg().equals("gs://neighbours-f1462.appspot.com/images/image5.jpg") == false ){
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://neighbours-f1462.appspot.com");
-            StorageReference imageRef = storageRef.child(s.getMsg());
+            StorageReference imageRef = storageRef.child(o.getMsg());
             ImageView img = view.findViewById(R.id.imageview);
             Task<Uri> uriTask = imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -94,23 +97,13 @@ public class OrderTextDialog extends DialogFragment {
 
         }
 
+
+
         Button add = view.findViewById(R.id.button3);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
-                LoginApiService.getInstance().getaddcard(s.getAuthor(),s.getId(),MainActivity.auth_id,s.getStatus()).enqueue(new Callback<Login>() {
-                    @Override
-                    public void onResponse(Call<Login> call, Response<Login> response) {
-                        Log.d(MainActivity.REST,response.body().toString());
-                    }
-
-                    @Override
-                    public void onFailure(Call<Login> call, Throwable t) {
-                        Log.d(MainActivity.REST,t.getMessage());
-                    }
-                });;
-
             }
         });
 

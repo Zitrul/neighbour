@@ -21,31 +21,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private List<Integer> mViewImg;
-    private ArrayList<Order> list2d;
-    private List<String> mJobs1;
-    private List<String> mJobs2;
-    private List<String> mJobs3;
+    private List<String> mJobs;
+    private List<Order> myorder;
+
     private LayoutInflater mInflater;
     private Context context;
     private ItemClickListener mClickListener;
 
-    public JobsAdapter(Context context, ArrayList<Order> list2d) {
+    public MyAdapter(Context context, List<Order> myorder) {
         this.mInflater = LayoutInflater.from(context);
+        this.myorder = myorder;
         this.context = context;
-        this.list2d = list2d;
     }
 
 
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.rec_item, parent, false);
+        View view = mInflater.inflate(R.layout.recyclerview_item1, parent, false);
         return new ViewHolder(view);
     }
 
@@ -53,15 +51,11 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
-
-        String text1 = list2d.get(position).getName();
-
-        holder.myimgres.setImageResource(R.drawable.flag_russia);
-        if(list2d.get(position).getMsg().equals("none") == false && list2d.get(position).getMsg().equals("gs://neighbours-f1462.appspot.com/images/image5.jpg") == false ){
+        System.out.println(myorder.get(position).getName());
+        if(myorder.get(position).getMsg().equals("none") == false && myorder.get(position).getMsg().equals("gs://neighbours-f1462.appspot.com/images/image5.jpg") == false ){
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReferenceFromUrl("gs://neighbours-f1462.appspot.com");
-            StorageReference imageRef = storageRef.child(list2d.get(position).getMsg());
+            StorageReference imageRef = storageRef.child(myorder.get(position).getMsg());
 
             Task<Uri> uriTask = imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -69,7 +63,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
                     String downloadUrl = uri.toString();
                     Glide.with(context)
                             .load(downloadUrl)
-                            .into(holder.myimgres);
+                            .into(holder.myView);
                     System.out.println("OK");
                     // здесь вы можете использовать полученную ссылку на файл
                 }
@@ -79,45 +73,41 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
                     System.out.println("ERRERER");// обработка ошибок получения ссылки на файл
                 }
             });
-
         }
 
-        holder.myTextView.setText(text1);
+        holder.myView.setImageResource(R.drawable.flag_russia);
+        holder.myTextView.setText(myorder.get(position).getName());
     }
 
 
     @Override
     public int getItemCount() {
-        return list2d.size();
+        return myorder.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView myimgres;
-
-        ImageView myimgresof1;
-
-        ImageView myimgresof2;
+        ImageView myView;
         TextView myTextView;
-        TextView myTextView1;
-        TextView myTextView2;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myimgres = itemView.findViewById(R.id.imageres);
-            myTextView = itemView.findViewById(R.id.tvname1);
+            myView = itemView.findViewById(R.id.imageres);
+            myTextView = itemView.findViewById(R.id.tvAnimalName);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (mClickListener != null){
+                mClickListener.onItemClick(view, getAdapterPosition());
+            }
         }
     }
 
 
-    public Object getItem(int id) {
-        return list2d.get(id);
+    public String getItem(int id) {
+        return mJobs.get(id);
     }
 
     public void setClickListener(ItemClickListener itemClickListener) {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/black">
 
 
@@ -11,31 +11,33 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="92dp"
 
-        android:backgroundTint="#AE9D07"
-
+        android:backgroundTint="#336666"
+        android:textColor="#FFFFFF"
         android:text="Создать"
         app:layout_constraintTop_toBottomOf="@+id/editTextDesc"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:textColor="@color/main_text"
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:text="Описание:"
+        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextDesc"
         app:layout_constraintTop_toBottomOf="@+id/Textname"
         tools:layout_editor_absoluteX="45dp" />
 
     <EditText
-        android:textColor="@color/main_text"
         android:id="@+id/editTextDesc"
         android:layout_width="298dp"
         android:layout_height="107dp"
-
-
+        android:layout_marginTop="10dp"
+        style="@style/EditTextRounded"
+        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.398"
@@ -43,24 +45,27 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:textColor="@color/main_text"
         android:id="@+id/editTextPrice"
         android:layout_width="297dp"
         android:layout_height="37dp"
+        android:layout_marginTop="10dp"
+        style="@style/EditTextRounded"
 
-
+        android:gravity="center"
+        android:textColor="@color/edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:textColor="@color/main_text"
+        style="@style/EditTextRounded"
         android:id="@+id/Textname"
         android:layout_width="297dp"
         android:layout_height="37dp"
-
-
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/edit_text"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.394"
@@ -68,21 +73,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
-        android:textColor="@color/main_text"
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:text="Цена:"
+        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextPrice"
         app:layout_constraintTop_toBottomOf="@+id/editTextDesc"
         tools:layout_editor_absoluteX="45dp" />
 
     <TextView
         android:id="@+id/textView11"
-        android:textColor="@color/main_text"
         android:layout_width="wrap_content"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Назание заказа:"
+        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/Textname"
         app:layout_constraintTop_toBottomOf="@+id/imageview"
         tools:layout_editor_absoluteX="45dp" />

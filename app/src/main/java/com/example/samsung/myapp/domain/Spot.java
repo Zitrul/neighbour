@@ -15,10 +15,12 @@ public class Spot implements Serializable {
     private String email;
     private String name_author;
     private double x;
+    private int author;
+    private int id;
     private double y;
 
 
-    public Spot(String msg, String name, String desc, String price, String status, String data, String email, String tg, String phone, String name_author, double x,double y) {
+    public Spot(int id,int author,String msg, String name, String desc, String price, String status, String data, String email, String tg, String phone, String name_author, double x,double y) {
         this.msg = msg;
         this.status = status;
         this.desc = desc;
@@ -31,6 +33,8 @@ public class Spot implements Serializable {
         this.name_author = name_author;
         this.x = x;
         this.y = y;
+        this.id = id;
+        this.author = author;
     }
 
     public String getName() {
@@ -79,5 +83,13 @@ public class Spot implements Serializable {
 
     public double getY() {
         return y;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getAuthor() {
+        return author;
     }
 }

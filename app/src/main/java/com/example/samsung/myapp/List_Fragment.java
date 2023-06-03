@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 
 import com.example.samsung.myapp.adapter.JobsAdapter;
 import com.example.samsung.myapp.adapter.MyRecyclerViewAdapter;
+import com.example.samsung.myapp.adapter.SpaceItemDecoration;
 import com.example.samsung.myapp.domain.Login;
 import com.example.samsung.myapp.domain.Order;
 import com.example.samsung.myapp.domain.Spot;
@@ -111,17 +112,20 @@ public class List_Fragment extends Fragment {
 
                 for(int i = 0; i < response.body().size(); i ++){
                     Log.d(MainActivity.REST,response.body().get(i).getName());
-
+                    System.out.println("Author " + response.body().get(i).getAuthor() );
                     list2d.add(response.body().get(i));
                 }
                 System.out.println(list2d.toString());
                 RecyclerView recViewJobs = rootView.findViewById(R.id.rvJobs);
-                GridLayoutManager JobsManager
-                        = new GridLayoutManager(getContext(), 3);
-                recViewJobs.setLayoutManager(JobsManager);
+                //GridLayoutManager JobsManager
+                //        = new GridLayoutManager(getContext(), 3);
+                //recViewJobs.setLayoutManager(JobsManager);
 
                 JobsAdapter adapterjobs = new JobsAdapter(getContext(), list2d);
                 recViewJobs.setAdapter(adapterjobs);
+                int spacingInDp = 8;
+                int spacingInPixels = (int) (spacingInDp * getResources().getDisplayMetrics().density);
+                recViewJobs.addItemDecoration(new SpaceItemDecoration(getContext(),spacingInPixels));
                 adapterjobs.setClickListener(new JobsAdapter.ItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {

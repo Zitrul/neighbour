@@ -46,7 +46,7 @@ public class MapActivity extends Activity {
         }
 
         //MapKitFactory.initialize(this);
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, MainActivity.class);
 
         Bundle arguments = getIntent().getExtras();
         String name = arguments.get("login").toString();

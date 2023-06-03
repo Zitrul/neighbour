@@ -10,18 +10,18 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="258dp"
-        android:layout_height="68dp"
+        android:layout_width="223dp"
+        android:layout_height="65dp"
 
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="106dp"
 
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="106dp"
         android:backgroundTint="#336666"
+        android:text="Ok"
         android:textColor="#FFFFFF"
-        android:text="Добавить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -32,7 +32,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="299dp"
         android:text="Описание:"
-        android:textStyle="bold"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextDesc"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,13 +39,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageview" />
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/editTextDesc"
         android:layout_width="298dp"
         android:layout_height="107dp"
-        android:layout_marginTop="8dp"
 
 
-        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.398"
@@ -59,7 +57,6 @@
         android:layout_height="37dp"
 
 
-        android:layout_marginTop="8dp"
         android:textColor="@color/main_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.385"
@@ -72,7 +69,6 @@
         android:layout_height="88dp"
 
 
-        android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="13dp"
         android:textColor="@color/main_text"
@@ -86,11 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="329dp"
-        android:layout_marginBottom="8dp"
         android:text="Цена:"
-        android:textStyle="bold"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextPrice"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,11 +106,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="198dp"
         android:layout_marginBottom="10dp"
         android:text="Контактная информация:"
-        android:textStyle="bold"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +117,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPrice" />
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,9 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
         android:text="phone:"
-        android:textStyle="bold"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toStartOf="@+id/textViewephone"
@@ -159,10 +147,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="30dp"
         android:text="email:"
-        android:textStyle="bold"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toStartOf="@+id/textViewemail"
@@ -173,10 +159,8 @@
         android:id="@+id/textViewtg"
         android:layout_width="284dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="69dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
@@ -186,31 +170,25 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/textViewemail"
         android:layout_width="263dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="70dp"
         android:text="TextView"
-        android:textColor="@color/main_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
+        android:textColor="@color/main_text"
         android:id="@+id/textViewephone"
         android:layout_width="257dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textColor="@color/main_text"
         app:layout_constraintBottom_toTopOf="@+id/textViewemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textViewtg"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewtg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

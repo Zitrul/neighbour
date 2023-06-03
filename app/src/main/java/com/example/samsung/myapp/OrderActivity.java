@@ -130,7 +130,7 @@ public class OrderActivity extends DialogFragment {
                             }
                         });
 
-                LoginApiService.getInstance().getOrder(last_index + 1, "gs://neighbours-f1462.appspot.com/images/image"+last_index+".jpg", name.getText().toString(), price.getText().toString(), desc.getText().toString(), currentDate, "false", MainActivity.auth_id).enqueue(new Callback<Login>() {
+                LoginApiService.getInstance().getOrder(last_index + 1, "images/image"+last_index+".jpg", name.getText().toString(), price.getText().toString(), desc.getText().toString(), currentDate, "false", MainActivity.auth_id).enqueue(new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
                         Log.d(MainActivity.REST, response.body().toString());

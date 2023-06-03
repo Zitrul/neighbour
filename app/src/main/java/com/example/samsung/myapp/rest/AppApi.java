@@ -32,5 +32,14 @@ public interface AppApi {
     @GET("getuserinfo/v1")
     Call<UserInfo> geUserInfo(@Query("id") int id);
 
+    @GET("market/v1")
+    Call<List<Order>> getAllmarket(@Query("id") int id);
+    @GET("imadethiswork/v1")
+    Call<List<Order>> getMyWorks(@Query("id") int id);
+
+    @GET("getcardadd/v1")
+    Call<Login> getaddcard(@Query("author_id") int author_id,@Query("id") int id,@Query("my_id") int my_id,@Query("status") String status);
+    @GET("checkme/v1")
+    Call<List<UserInfo>> checkmepls(@Query("id") int id);
 
 }

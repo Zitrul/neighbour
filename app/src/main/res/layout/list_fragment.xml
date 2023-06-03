@@ -9,13 +9,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJobs"
-        android:layout_width="410dp"
-        android:layout_height="596dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="408dp"
+        android:layout_height="732dp"
+        android:layout_margin="15dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_add"
@@ -30,17 +32,4 @@
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="384dp"
-        android:layout_marginBottom="1dp"
-        android:text="Все"
-        android:textColor="@color/main_text"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/rvJobs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

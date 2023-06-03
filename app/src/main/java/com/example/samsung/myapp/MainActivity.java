@@ -2,17 +2,21 @@ package com.example.samsung.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.Preference;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.samsung.myapp.domain.Login;
 import com.example.samsung.myapp.rest.LoginApiService;
-import com.google.firebase.FirebaseApp;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,13 +32,34 @@ public class MainActivity extends AppCompatActivity {
     String message = "";
     public static int auth_id = 0;
     public static final String REST = "REST";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this, MainActivity2.class);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        int authStatus = sharedPreferences.getInt("authStatus", -1); // Значение 0 указывает на неуспешную авторизацию
+        if (authStatus > -1) {
+            auth_id = authStatus;
+            //startActivity(intent);
+        } else {
+            System.out.println("Нужна авотризация");
+        }
+
+        /*SharedPreferences mSettings = getSharedPreferences("my_storage", Context.MODE_PRIVATE);
+        System.out.println(mSettings.getInt("is_logged",-1));
+        if(mSettings.getInt("is_logged",-1) >=0){
+            System.out.println("OK");
+            startActivity(intent);
+
+        }*/
+
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, MainActivity2.class);
+
+
 
         EditText name = findViewById(R.id.editTextDesc);
         EditText password = findViewById(R.id.editTextSecondName);
@@ -42,43 +67,62 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message = name.getText().toString()+ "\n" +password.getText().toString();
+                message = name.getText().toString() + "\n" + password.getText().toString();
                 if (message != "") {
                     //sendMessage(message);
                     System.out.println(message);
-                    LoginApiService.getInstance().getLogin(name.getText().toString(),password.getText().toString()).enqueue(new Callback<Login>() {
+                    LoginApiService.getInstance().getLogin(name.getText().toString(), password.getText().toString()).enqueue(new Callback<Login>() {
                         @Override
                         public void onResponse(Call<Login> call, Response<Login> response) {
-                            Log.d(REST,response.body().toString());
-
+                            Log.d(REST, response.body().toString());
 
 
                             try {
-                                if(Integer.parseInt(response.body().getMsg())>=0){
+                                if (Integer.parseInt(response.body().getMsg()) >= 0) {
+
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putInt("authStatus", Integer.parseInt(response.body().getMsg())); // Значение 1 указывает на успешную авторизацию
+                                    editor.apply(); // Применение изменений
+
+
                                     auth_id = Integer.parseInt(response.body().getMsg());
                                     startActivity(intent);
                                 }
 
-                            }
-                            catch (Exception i){
+                            } catch (Exception i) {
+                                SharedPreferences mSettings = getSharedPreferences("my_storage", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = mSettings.edit();
+                                editor.putInt("is_logged", -1).apply();
+
+
                                 System.out.println(i);
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Login> call, Throwable t) {
-                            Log.d(REST,t.getMessage());
+                            Log.d(REST, t.getMessage());
                         }
-                    });;
+                    });
+                    ;
 
                 }
 
             }
         });
+        Intent intent1 = new Intent(this, Registration.class);
+        Button regme = findViewById(R.id.buttonreg);
+        regme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
+                startActivity(intent1);
+            }
+        });
 
     }
+
+
     private void sendMessage(final String msg) {
 
         final Handler handler = new Handler();

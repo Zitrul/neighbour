@@ -10,9 +10,13 @@
 
     <EditText
         android:id="@+id/editTextDesc"
+        style="@style/EditTextRounded"
         android:layout_width="300dp"
+
         android:layout_height="40dp"
-        android:textColor="@color/main_text"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/edit_text"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
@@ -20,12 +24,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:textColor="@color/main_text"
         android:id="@+id/textView"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="3dp"
         android:text="Введите Пароль"
+        android:textColor="@color/main_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextSecondName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
@@ -33,12 +40,14 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextDesc" />
 
     <TextView
-        android:textColor="@color/main_text"
+        android:textStyle="bold"
         android:id="@+id/textView2"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
         android:text="Введите Имя"
+        android:textColor="@color/main_text"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
@@ -46,12 +55,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:textColor="@color/main_text"
         android:id="@+id/editTextSecondName"
+        style="@style/EditTextRounded"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="3dp"
-
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,17 +69,39 @@
 
     <Button
 
-        android:text="Подтвердить"
         android:id="@+id/button"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="150dp"
+
+
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="108dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#BCCED1"
+        android:text="Войти"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSecondName" />
+
+    <Button
+
+        android:id="@+id/buttonreg"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#BCCED1"
+        android:text="Зарегистрироваться"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.071" />
 </androidx.constraintlayout.widget.ConstraintLayout>
