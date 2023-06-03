@@ -43,11 +43,8 @@ public class MainActivity extends AppCompatActivity {
         int authStatus = sharedPreferences.getInt("authStatus", -1); // Значение 0 указывает на неуспешную авторизацию
         if (authStatus > -1) {
             auth_id = authStatus;
-            //startActivity(intent);
-        } else {
-            System.out.println("Нужна авотризация");
+            startActivity(intent);
         }
-
         /*SharedPreferences mSettings = getSharedPreferences("my_storage", Context.MODE_PRIVATE);
         System.out.println(mSettings.getInt("is_logged",-1));
         if(mSettings.getInt("is_logged",-1) >=0){

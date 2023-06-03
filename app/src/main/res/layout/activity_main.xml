@@ -58,6 +58,7 @@
         android:id="@+id/editTextSecondName"
         style="@style/EditTextRounded"
         android:layout_width="300dp"
+        android:inputType="textPassword"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
