@@ -29,16 +29,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ListActivity"
-            android:exported="false">best_
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MapActivityOfMainActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity

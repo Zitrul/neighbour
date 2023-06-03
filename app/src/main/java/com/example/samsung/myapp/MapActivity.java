@@ -62,10 +62,7 @@ public class MapActivity extends Activity {
         mapView = (MapView)findViewById(R.id.mapview);
 
 
-        mapView.getMap().move(
-                new CameraPosition(TARGET_LOCATION, 18.0f, 0.0f, 0.0f),
-                new Animation(Animation.Type.SMOOTH, 5),
-                null);
+
         Button b = findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
